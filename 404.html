@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="𝙾𝚆𝙽𝙴𝙳 𝙱𝚈 𝙳𝙾𝙳𝚂">
+    <title>𝙾𝚆𝙽𝙴𝙳 𝙱𝚈 𝙳𝙾𝙳𝚂</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * { 
+            overflow: hidden; 
+            margin: 0;
+            padding: 0;
+        }
+        html { 
+            height: 100%; 
+        }
+        body {
+            font-family: 'VT323', monospace;
+            background: #000;
+            color: #ffffff;
+            margin: 0;
+            position: relative;
+        }
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 2.5vmin;
+            text-shadow: 0 0 10px #ffffff;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff;
+        }
+        video#back {
+            position: fixed;
+            top: 70%;
+            left: 50%;
+            min-width: 105%;
+            min-height: 105%;
+            transform: translateX(-50%) translateY(-50%) rotate(5deg);
+            filter: brightness(1.2) contrast(1.1); /* Daha parlak ve net */
+            z-index: -1;
+        }
+        #main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: table;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Arka planı biraz daha şeffaf yaparak video öne çıksın */
+            z-index: 1;
+        }
+        .fof {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .fof h1 {
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 2.5vmin;
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff;
+            margin: 10px 0;
+        }
+        h2 a {
+            color: #ffffff;
+            text-decoration: none;
+            text-shadow: 0 0 5px #ffffff;
+        }
+        h2 a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px #ffffff;
+        }
+        .hacker-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hacker-rain::before {
+            
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 2vmin;
+            opacity: 0.2;
+            animation: rain-fall 5s linear infinite;
+            white-space: nowrap;
+            text-shadow: 0 0 5px #ffffff;
+        }
+        .hacker-rain::after {
+            content: "HACK THE PLANET 0101 1010 CYBER TURK";
+            position: absolute;
+            top: -150%;
+            left: 20%;
+            width: 100%;
+            height: 200%;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 1.8vmin;
+            opacity: 0.15;
+            animation: rain-fall 7s linear infinite;
+            white-space: nowrap;
+            text-shadow: 0 0 5px #ffffff;
+        }
+
+        /* Animasyon */
+        @keyframes rain-fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(150vh); }
+        }
+    </style>
+</head>
+<body onclick="unmuteee()">
+    <div id="anchor" onclick="unmuteee()"></div>
+    <div class="hacker-rain"></div>
+    <video onclick="unmuteee()" loop autoplay muted preload="none" id="back" x-webkit-airplay="allow" webkit-playsinline playsinline>
+        <source src="https://aktoros.com/edit9.mp4" type="video/mp4">
+    </video>
+    <div id="main" onclick="unmuteee()">
+        <div class="fof" onclick="unmuteee()">
+            <h2><font size="8" style="color: white; text-shadow: 0px 1px 6px; background:url('https://i.hizliresim.com/q8029t1.gif');">404 Bulunamadı Amk </font></h2>
+            <h2><font size="7" style="color: white; text-shadow: 0px 1px 6px; background:url('https://i.hizliresim.com/q8029t1.gif');">Fazla Alt Dizinlere İnme Genç </font></h2>
+            
+            
+
+            <br>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var video = $('video');
+        (function ($) {
+            $(document).ready(function () {
+                var figure = $(".fof").hover(hoverVideo);
+                var figureq = $("body").hover(hoverVideo);
+                var figures = $("#main").hover(hoverVideo);
+                var figurep = $("*").hover(hoverVideo);
+
+                function hoverVideo(e) {
+                    setTimeout(function () {
+                        $('video').get(0).play();
+                        console.log('played');
+                    }, 30000);
+                };
+            });
+        })(jQuery);
+
+        function unmuteee() {
+            $("video").prop('muted', false);
+        }
+    </script>
+</body>
+</html>
