@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owned by Dods</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        .video-container {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ccc;
+            border: 2px dashed #666;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hashtag {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #e0e0e0;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            color: #4ecdc4;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(78, 205, 196, 0.5);
+        }
+
+        .footer-text {
+            margin-top: 25px;
+            font-size: 1rem;
+            color: #ffd700;
+            font-style: italic;
+        }
+
+        .tags {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .glow-effect {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 40%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+
+        .social-media {
+            margin: 25px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-logo {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+            transition: all 0.3s ease;
+        }
+
+        .telegram-logo:hover {
+            filter: drop-shadow(0 0 12px rgba(0, 136, 204, 0.8));
+            transform: scale(1.1);
+        }
+
+        .instagram-logo:hover {
+            filter: drop-shadow(0 0 12px rgba(228, 64, 95, 0.8));
+            transform: scale(1.1);
+        }
+
+        .social-text {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .username {
+            color: #4ecdc4;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(78, 205, 196, 0.6);
+        }
+
+        .main-title-red {
+            font-size: 3rem;
+            font-weight: 400;
+            margin: 20px 0;
+            color: #ff0000;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <div class="video-container">
+            <img src="https://i.pinimg.com/736x/ab/e2/a1/abe2a10118f64a7c8b3b4e686f4948d3.jpg" alt="10 Kasım Instagram Reel" style="width: 100%; height: 315px; object-fit: cover; border-radius: 10px;">
+        </div>
+
+          <h1><font size="8" style="color: red; text-shadow: 0px 1px 6px; background:url('https://i.hizliresim.com/q8029t1.gif');">𝐻𝑎𝑐𝑘𝑒𝑑 𝐵𝑦 𝐷𝑜𝑑𝑠 </font></h1>
+
+        
+        <p class="description">
+            
+        </p>
+        
+        <div class="social-media">
+            <div class="social-item">
+                <img src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png" alt="Telegram" class="social-logo telegram-logo">
+                <span class="social-text">Telegram <span class="username">@DodsGudinne</span></span>
+            </div>
+            <div class="social-item">
+                <img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" alt="Instagram" class="social-logo instagram-logo">
+                <span class="social-text">Instagram <span class="username">@yigit.php</span></span>
+            </div>
+        </div>
+        
+        <p class="description">
+            
+        </p>
+        
+        <div class="footer-text">
+            Türk milleti istiklâlsiz yaşamamıştır, yaşayamaz ve yaşamayacaktır." -Mustafa Kemal Atatürk 
+            
+        </div>
+        
+        <div class="tags">
+            Türkish Defacer Was Here 
+        </div>
+    </div>
+
+    <script>
+        // Dinamik parçacık efekti
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        // Her 3 saniyede bir yeni parçacık oluştur
+        setInterval(createParticle, 3000);
+
+        // Sayfa yüklendiğinde animasyon efekti
+        window.addEventListener('load', () => {
+            document.querySelector('.container').style.animation = 'fadeIn 1s ease-in';
+        });
+
+        // CSS animasyonu ekle
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
