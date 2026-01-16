@@ -12,9 +12,23 @@
       text-align: center;
       margin: 0;
       padding: 30px;
+      overflow-x: hidden;
     }
 
-    /* ASCII logo */
+    /* ===== SAYFA ALTTAN ÜSTE GELİŞ ===== */
+    .page-wrapper {
+      transform: translateY(120px);
+      opacity: 0;
+      animation: pageUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes pageUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     pre.ascii {
       color: cyan;
       font-size: 16px;
@@ -53,7 +67,7 @@
     footer a { color: #555; text-decoration: none; }
     footer a:hover { color: cyan; }
 
-    /* Terminal frame - Arch/Hyprland style */
+    /* ===== TERMINAL ===== */
     .terminal-frame {
       background: #111;
       color: #0f0;
@@ -66,6 +80,7 @@
       text-align: left;
       overflow: hidden;
     }
+
     .terminal-header {
       background: #1a1a1a;
       color: #bbb;
@@ -77,9 +92,9 @@
       border-bottom: 1px solid #333;
       font-family: monospace;
     }
-    .term-title {
-      color: #888;
-    }
+
+    .term-title { color: #888; }
+
     .term-btns {
       display: flex;
       gap: 6px;
@@ -112,7 +127,7 @@
       50% { background: transparent; }
     }
 
-    /* CONTACT section - yeşil */
+    /* ===== CONTACT ===== */
     #contact {
       margin-top: 30px;
       text-align: center;
@@ -150,17 +165,17 @@
     }
   </style>
 </head>
+
 <body>
 
+<div class="page-wrapper">
 
-  <!-- Hakkımda -->
   <h2>𝙳𝚘𝚍𝚜 - <span class="highlight-green">𝚆𝚎𝚋 𝚂𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝙴𝚡𝚙𝚎𝚛𝚝</span></h2>
   <p>
     Dods Defacer <span class="highlight-blue">Web Security</span>, Reverse Engineering and Exploits.<br>
     Web exploit Defacement
   </p>
 
-  <!-- Terminal -->
   <div class="terminal-frame">
     <div class="terminal-header">
       <div class="term-title">WebGodDods:~</div>
@@ -171,11 +186,12 @@
       </div>
     </div>
     <div id="terminal-box">
-      <span class="prompt">WebGodDods:~$</span> <span id="typed-cmd"></span><span class="cursor"></span>
+      <span class="prompt">WebGodDods:~$</span>
+      <span id="typed-cmd"></span>
+      <span class="cursor"></span>
     </div>
   </div>
 
-  <!-- Contact -->
   <section id="contact">
     <h2>● CONTACT</h2>
     <div class="contact-buttons">
@@ -183,7 +199,6 @@
       <a href="https://t.me/DodsGudinne" target="_blank">✦ Telegram</a>
       <a href="https://www.tiktok.com/@dods.sh" target="_blank">✦ Tiktok</a>
       <a href="https://www.youtube.com/@DodsGudinne/" target="_blank">✦ Youtube</a>
-      
     </div>
   </section>
 
@@ -191,79 +206,71 @@
     © 2025 | <a href="#">Dods</a> | Powered by Hack Dods
   </footer>
 
-  <!-- Typing efekt -->
-  <script>
-    const typedCmd = document.getElementById("typed-cmd");
-    const terminalBox = document.getElementById("terminal-box");
+</div>
 
-    const command = "whoami";
-    const lines = [
-      "Who is Dods?",
-      "Hello, I am Dods, a young defacer who has made a name for himself in web defacement, albeit in a small way.",
-      "I have reported over 1,500 websites so far.",
-      "I develop software according to systems and specifications, but these are private..",
-      "I don't deal with web security all the time.",
-      "My areas of expertise are not limited to web security; I am also a developer who develops advanced Fivem server packages.",
-      "So far, no one has helped me with any hacks or anything else. I've learned everything on my own :)",
-      "I'm not competing with anyone, I'm just doing my own thing, but there are people who are competing with me without me knowing it.",
-      "I have a few private vehicles available. If you would like to purchase one or have any questions, please contact me via the links below.",
-      
-    ];
+<!-- ===== TYPING EFFECT (METİNLER AYNI) ===== -->
+<script>
+  const typedCmd = document.getElementById("typed-cmd");
+  const terminalBox = document.getElementById("terminal-box");
 
-    function typeCommand(i = 0) {
-      if (i < command.length) {
-        typedCmd.textContent += command.charAt(i);
-        setTimeout(() => typeCommand(i + 1), 100);
-      } else {
-        setTimeout(() => showLines(0), 500);
-      }
+  const command = "whoami";
+  const lines = [
+    "Who is Dods?",
+    "Hello, I am Dods, a young defacer who has made a name for himself in web defacement, albeit in a small way.",
+    "I have reported over 1,500 websites so far.",
+    "I develop software according to systems and specifications, but these are private..",
+    "I don't deal with web security all the time.",
+    "My areas of expertise are not limited to web security; I am also a developer who develops advanced Fivem server packages.",
+    "So far, no one has helped me with any hacks or anything else. I've learned everything on my own :)",
+    "I'm not competing with anyone, I'm just doing my own thing, but there are people who are competing with me without me knowing it.",
+    "I have a few private vehicles available. If you would like to purchase one or have any questions, please contact me via the links below."
+  ];
+
+  function typeCommand(i = 0) {
+    if (i < command.length) {
+      typedCmd.textContent += command.charAt(i);
+      setTimeout(() => typeCommand(i + 1), 100);
+    } else {
+      setTimeout(() => showLines(0), 500);
     }
+  }
 
-    function showLines(l) {
-      if (l < lines.length) {
-        let line = document.createElement("div");
-        terminalBox.appendChild(line);
-        let i = 0;
+  function showLines(l) {
+    if (l < lines.length) {
+      let line = document.createElement("div");
+      terminalBox.appendChild(line);
+      let i = 0;
 
-        function typeChar() {
-          if (i < lines[l].length) {
-            line.textContent += lines[l][i];
-            i++;
-            setTimeout(typeChar, 40);
-          } else {
-            l++;
-            setTimeout(() => showLines(l), 400);
-          }
+      function typeChar() {
+        if (i < lines[l].length) {
+          line.textContent += lines[l][i];
+          i++;
+          setTimeout(typeChar, 40);
+        } else {
+          setTimeout(() => showLines(l + 1), 400);
         }
-        typeChar();
       }
+      typeChar();
     }
+  }
 
-    setTimeout(typeCommand, 800);
-  </script>
+  setTimeout(typeCommand, 800);
+</script>
 
-  <!-- ❄️ Kar Efekti -->
-  <script src="https://cdn.prinsh.com/NathanPrinsley-effect/salju-terbang.js" type="text/javascript"></script>
+<!-- KAR EFEKTİ -->
+<script src="https://cdn.prinsh.com/NathanPrinsley-effect/salju-terbang.js"></script>
 
-  <!-- 🎵 Arka plan müzik -->
-  <audio id="bgMusic" loop>
-    <source src="https://c.top4top.io/m_3563859411.mp3" type="audio/mpeg">
-  </audio>
-  <script>
-    document.addEventListener("click", () => {
-      const audio = document.getElementById("bgMusic");
-      audio.volume = 0.4;
-      audio.play().catch(e => console.log("Autoplay blocked:", e));
-    }, { once: true });
-  </script>
+<!-- MÜZİK -->
+<audio id="bgMusic" loop>
+  <source src="https://c.top4top.io/m_3563859411.mp3" type="audio/mpeg">
+</audio>
+<script>
+  document.addEventListener("click", () => {
+    const audio = document.getElementById("bgMusic");
+    audio.volume = 0.4;
+    audio.play().catch(e => {});
+  }, { once: true });
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
