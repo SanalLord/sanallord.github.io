@@ -209,7 +209,6 @@
 
 </div>
 
-<!-- ===== TYPING EFFECT (METİNLER AYNI) ===== -->
 <script>
   const typedCmd = document.getElementById("typed-cmd");
   const terminalBox = document.getElementById("terminal-box");
@@ -258,10 +257,8 @@
   setTimeout(typeCommand, 800);
 </script>
 
-<!-- KAR EFEKTİ -->
 <script src="https://cdn.prinsh.com/NathanPrinsley-effect/salju-terbang.js"></script>
 
-<!-- MÜZİK -->
 <audio id="bgMusic" loop>
   <source src="https://c.top4top.io/m_3563859411.mp3" type="audio/mpeg">
 </audio>
@@ -273,9 +270,24 @@
   }, { once: true });
 </script>
 
+<!-- 🔥 EKLEDİĞİM GELİŞMİŞ TAB TITLE SCRIPT -->
+<script>
+const messages = ["Bizi Unutma...", "Geri Dön 😢", "Nerdesin la.."];
+let i = 0;
+let interval;
+
+window.addEventListener("blur", () => {
+    interval = setInterval(() => {
+        document.title = messages[i % messages.length];
+        i++;
+    }, 1000);
+});
+
+window.addEventListener("focus", () => {
+    clearInterval(interval);
+    document.title = "Dods | Whoami?";
+});
+</script>
+
 </body>
 </html>
-
-
-
-
